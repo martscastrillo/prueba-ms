@@ -9,12 +9,14 @@ const App = () => {
 	const [errorMessageMessage, seterrorMessageMessage] = useState("");
   const [checkbox, setcheckbox] = useState(false);
   const [hidden, setHidden] = useState('hidden');
+  const [treatment, setTreatment] = useState('Sr.');
 	const [dataForm, setDataForm] = useState({
 		name: "",
 		email: "",
 		phone: "",
 		message: "",
-    checkbox:false
+    checkbox: false,
+    treatment:""
 	});
 	const [validations, setValidations] = useState({
 		isInvalidName: false,
@@ -86,20 +88,28 @@ const App = () => {
 				seterrorMessageMessage("Message must be longer.");
 			}
 		}
+   if (dataForm.checkbox === true){
+      console.log('si')
+    }
+    if (dataForm.checkbox === false){
+      console.log('no')
+    } 
+  
 		setDataForm({ ...dataForm, [ev.target.name]: ev.target.value });
+  
 	
-	};
+	};  console.log(dataForm)
   const handleChange = () => {
     setcheckbox(!checkbox); 
     if( checkbox === true){
-      console.log('not checked')
       setDataForm({ ...dataForm, checkbox: false});
-      setHidden('hidden')
+      setHidden('hidden');
+      return(false)
     }
     if( checkbox === false){
-      console.log(' cheked')
       setDataForm({ ...dataForm, checkbox: true});
       setHidden('')
+      return(true)
     }
 	};
 	const handleSubmit = (ev) => {
@@ -107,7 +117,10 @@ const App = () => {
 		sendFormApi(dataForm);
 		console.log(dataForm);
 	};
+	const handleTreatment = (ev) => {
+    setTreatment(ev.target.value)
 
+	};
 	return (
 		<div>
 			<header>
@@ -154,7 +167,7 @@ const App = () => {
 						<label  htmlFor="">Want to tell us your treatment?</label>
 						<input  className="input__checkbox" type="checkbox" name="checkbox" id="checkbox" name="treatment" checked={checkbox}
 							onChange={handleChange}/>
-            <select name="" id=""className={`${hidden}`}>
+            <select name='treatment' id='treatment' className={`${hidden}`}  onChange={handleTreatment} value={treatment}>
               <option value="">Sr.</option>
               <option value="">Sra.</option>
             </select>
