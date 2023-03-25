@@ -10,29 +10,69 @@ const App = () => {
     phone: '',
     message: ''
   });
+  const [validations, setValidations] = useState({
+    isInvalidName: false,
+    isInvalidMail: false,
+    isInvalidPhone: false,
+    isInvalidMessage: false,
+  });
 
   const sendFormApi = (data) => {
     apiData.sendFormApi(data).then(response => {
-      if (response.success === true) {
+      if (response) {
         setDataForm(response.dataForm);
+        
         // Si la usuaria introduce bien sus datos redireccionamos desde la página de login al inicio de la página
 
-      } else {
+      }  /*else { */
         // Si la usuaria introduce mal sus datos guardamos el error que nos devuelve el API para que se pinte en la página
         /* setLoginErrorMessage(response.errorMessage);*/
-      }
+    /*   } */
     });
-    console.log('hola')
+    
   };
 
   const handleInput = (ev) => {
-    ev.preventDefault();
+    ev.preventDefault();   
+    if(ev.target.name === 'name'){
+      console.log(ev.target.value.length)
+      if (ev.target.value.length > 3) {
+        setValidations({ ...validations, isInvalidName: true });
+      } else {
+        setValidations({ ...validations, isInvalidName: false });
+      }
+    }
+    if(ev.target.name === 'email'){
+      if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(ev.target.value)) {
+        setValidations({ ...validations, isInvalidMail: true });
+        console.log('helo')
+      } else {
+        setValidations({ ...validations, isInvalidMail: false });
+      }
+    }
+  /*   if(ev.target.name === 'name'){
+      if (ev.target.value.length > 3) {
+        setValidations({ ...validations, isInvalidPhone: true });
+      } else {
+        setValidations({ ...validations, isInvalidPhone: false });
+      }
+    } */
+    if(ev.target.name === 'message'){
+      console.log(ev.target.value.length)
+      if (ev.target.value.length > 10) {
+        setValidations({ ...validations, isInvalidMessage: true });
+      } else {
+        setValidations({ ...validations, isInvalidMessage: false });
+      }
+    }
+    console.log(validations)
     setDataForm({ ...dataForm, [ev.target.name]: ev.target.value });
   };
   const handleSubmit = (ev) => {
     ev.preventDefault();
     sendFormApi(dataForm);
-    console.log('hola')
+    console.log(dataForm)
+    
   };
 
 
@@ -48,7 +88,8 @@ const App = () => {
         
         <div className="div_input"><input className="input" name="email" type="email" placeholder="Email" value={dataForm.email} onChange={handleInput} /></div>
         <div className="div_input"><input className="input" name="phone" type="tlf" placeholder="Telefono" value={dataForm.phone} onChange={handleInput} /></div>
-        <div className="div_input"><input className="input" name="message" type="text" placeholder="Mensaje" value={dataForm.message} onChange={handleInput} /></div></div>
+        <div className="div_input"><input className="input" name="message" type="text" placeholder="Mensaje" value={dataForm.message} onChange={handleInput} /></div>
+        </div>
         <input className="submit" type="submit" value="Submit" />
       </form >
     </div >
