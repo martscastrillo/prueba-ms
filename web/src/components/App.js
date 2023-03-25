@@ -35,37 +35,44 @@ const App = () => {
   const handleInput = (ev) => {
     ev.preventDefault();   
     if(ev.target.name === 'name'){
-      console.log(ev.target.value.length)
+   
       if (ev.target.value.length > 3) {
+        console.log('name si')
         setValidations({ ...validations, isInvalidName: true });
       } else {
+        console.log(' name no')
         setValidations({ ...validations, isInvalidName: false });
       }
     }
     if(ev.target.name === 'email'){
-      if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(ev.target.value)) {
+      if (/^[\w-]+@([\w-]+\.)+[\w-]{2,4}$/.test(ev.target.value)) {
+        console.log('email si')
         setValidations({ ...validations, isInvalidMail: true });
-        console.log('helo')
+        
       } else {
+        console.log('email no')
         setValidations({ ...validations, isInvalidMail: false });
       }
     }
-  /*   if(ev.target.name === 'name'){
-      if (ev.target.value.length > 3) {
+    if(ev.target.name === 'phone'){
+      if (/^[(]?[0-9]{3}[)]?[-\s\\.]?[0-9]{3}[-\s\\.]?[0-9]{3}$/.test(ev.target.value)) {
+        console.log('phone si')
         setValidations({ ...validations, isInvalidPhone: true });
       } else {
+        console.log('phone no')
         setValidations({ ...validations, isInvalidPhone: false });
       }
-    } */
+    }
     if(ev.target.name === 'message'){
-      console.log(ev.target.value.length)
       if (ev.target.value.length > 10) {
+        console.log('message si')
         setValidations({ ...validations, isInvalidMessage: true });
       } else {
+        console.log('message no')
         setValidations({ ...validations, isInvalidMessage: false });
       }
     }
-    console.log(validations)
+  
     setDataForm({ ...dataForm, [ev.target.name]: ev.target.value });
   };
   const handleSubmit = (ev) => {
