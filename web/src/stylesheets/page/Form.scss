@@ -1,13 +1,12 @@
 .form {
 	@include perfectCenterFlex();
 	flex-wrap: wrap;
-	
 }
 .div {
 	width: 100vw;
-	@include perfectCenterFlex();	
+	@include perfectCenterFlex();
 	@include flexColum();
-	flex-wrap: wrap;	
+	flex-wrap: wrap;
 	&__input {
 		width: 70%;
 		margin: 10px;
@@ -16,7 +15,6 @@
 		}
 	}
 }
-
 .input {
 	background: #f9f9fa 0 0 no-repeat padding-box;
 	border: 1px solid #ededed;

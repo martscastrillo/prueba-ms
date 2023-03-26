@@ -9,14 +9,12 @@ const sendFormApi = (data) => {
 	})
 		.then((response) => response.json())
 		.then((dataObj) => {
-			console.log('Server response:', dataObj);
+			console.log("Server response:", dataObj);
 		});
-
 };
 
-  const objToExport = {
-    sendFormApi: sendFormApi,
-  };
-  
-  export default objToExport;
-  
+const objToExport = {
+	sendFormApi: sendFormApi,
+};
+
+export default objToExport;

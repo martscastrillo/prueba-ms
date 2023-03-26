@@ -2,7 +2,6 @@
 	width: 80%;
 	margin-bottom: 12px;
 }
-
 .footersection {
 	display: grid;
 	grid-template-columns: 1fr;
@@ -55,7 +54,6 @@
 		}
 	}
 }
-
 .termsdiv {
 	@include flexColum();
 	align-items: flex-end;
@@ -73,7 +71,6 @@
 		justify-content: space-around;
 	}
 }
-
 .logos {
 	@include perfectCenterFlex();
 	align-self: center;
@@ -91,7 +88,7 @@
 	@include perfectCenterFlex();
 	padding: 10px;
 	border-radius: 5px;
-	color:$white;
+	color: $white;
 	box-shadow: 4px 4px 4px 2px rgba(52, 52, 52, 0.19);
 	background-color: $black;
 }

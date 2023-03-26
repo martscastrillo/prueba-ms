@@ -45,9 +45,9 @@ const App = () => {
 	const handleInput = (ev) => {
 		ev.preventDefault();
 		if (ev.target.name === "name") {
-			if (ev.target.value.length > 3) {		
+			if (ev.target.value.length > 3) {
 				seterrorNameMessage("");
-			} else {			
+			} else {
 				seterrorNameMessage("Name must be longer.");
 			}
 		}
@@ -59,7 +59,11 @@ const App = () => {
 			}
 		}
 		if (ev.target.name === "phone") {
-			if (/^[(]?[0-9]{3}[)]?[-\s\\.]?[0-9]{3}[-\s\\.]?[0-9]{3}$/.test(ev.target.value)){
+			if (
+				/^[(]?[0-9]{3}[)]?[-\s\\.]?[0-9]{3}[-\s\\.]?[0-9]{3}$/.test(
+					ev.target.value
+				)
+			) {
 				seterrorPhoneMessage("");
 			} else {
 				seterrorPhoneMessage("Phone must be formatted correctly.");
@@ -96,19 +100,30 @@ const App = () => {
 		setDataForm({ ...dataForm, [ev.target.name]: ev.target.value });
 	};
 	const resetForm = () => {
-		setDataForm({name: "",
-		email: "",
-		phone: "",
-		message: "",
-		treatment: ""});
+		setDataForm({ name: "", email: "", phone: "", message: "", treatment: "" });
 		setCheckbox(false);
 		setHidden("hidden");
 	};
 	return (
 		<div>
 			<Header burger={burger} handleBurger={handleBurger}></Header>
-			<Form handleSubmit={handleSubmit} handleInput={handleInput} errorNameMessage={errorNameMessage} checkbox={checkbox} handleChange={handleChange} hidden={hidden} dataFormEmail={dataForm.email} dataFormPhone={dataForm.phone} dataFormName={dataForm.name}   dataFormMessage={dataForm.message} handleTreatment={handleTreatment} treatment={treatment} errorPhoneMessage={errorPhoneMessage} errorMailMessage={errorMailMessage} errorMessageMessage={errorMessageMessage}
-			 ></Form>
+			<Form
+				handleSubmit={handleSubmit}
+				handleInput={handleInput}
+				errorNameMessage={errorNameMessage}
+				checkbox={checkbox}
+				handleChange={handleChange}
+				hidden={hidden}
+				dataFormEmail={dataForm.email}
+				dataFormPhone={dataForm.phone}
+				dataFormName={dataForm.name}
+				dataFormMessage={dataForm.message}
+				handleTreatment={handleTreatment}
+				treatment={treatment}
+				errorPhoneMessage={errorPhoneMessage}
+				errorMailMessage={errorMailMessage}
+				errorMessageMessage={errorMessageMessage}
+			></Form>
 			<CountrySection></CountrySection>
 			<Footer></Footer>
 		</div>
