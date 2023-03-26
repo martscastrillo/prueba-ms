@@ -21,7 +21,6 @@ const App = () => {
 		checkbox: false,
 		treatment: "",
 	});
-	console.log(dataForm)
 	const [validations, setValidations] = useState({
 		isInvalidName: false,
 		isInvalidMail: false,
@@ -34,11 +33,7 @@ const App = () => {
 			if (response) {
 				setDataForm(response.dataForm);
 
-				// Si la usuaria introduce bien sus datos redireccionamos desde la página de login al inicio de la página
-			} /*else { */
-			// Si la usuaria introduce mal sus datos guardamos el error que nos devuelve el API para que se pinte en la página
-			/* setLoginErrorMessage(response.errorMessage);*/
-			/*   } */
+			}
 		});
 	};
 	const handleBurger = (ev) => {
@@ -190,8 +185,8 @@ const App = () => {
 							value={treatment}
 						>	
 						 <option></option>
-							<option value="Sr.">Sr.</option>
-							<option value="Sra.">Sra.</option>
+							<option value="Mr.">Mr.</option>
+							<option value="Mrs.">Mrs.</option>
 						</select>
 					</div>
 					<div className="div__input">
@@ -211,7 +206,7 @@ const App = () => {
 							className="input"
 							name="phone"
 							type="tlf"
-							placeholder="Telefono"
+							placeholder="Phone"
 							value={dataForm.phone}
 							onChange={handleInput}
 							required
@@ -223,7 +218,7 @@ const App = () => {
 							className="input__message"
 							name="message"
 							type="text"
-							placeholder="Mensaje"
+							placeholder="Message"
 							value={dataForm.message}
 							onChange={handleInput}
 							required
