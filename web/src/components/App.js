@@ -3,7 +3,6 @@ import { useState } from "react";
 import "../stylesheets/App.scss";
 
 const App = () => {
-
 	const [errorNameMessage, seterrorNameMessage] = useState("");
 	const [errorMailMessage, seterrorMailMessage] = useState("");
 	const [errorPhoneMessage, seterrorPhoneMessage] = useState("");
@@ -42,7 +41,7 @@ const App = () => {
 	};
 	const handleBurger = (ev) => {
 		ev.preventDefault();
-		
+
 		if (active === true) {
 			setActive(false);
 			setBurger("burger");
@@ -50,28 +49,24 @@ const App = () => {
 		if (active === false) {
 			setActive(true);
 			setBurger("burger active");
-		} 
 		}
+	};
 	const handleInput = (ev) => {
 		ev.preventDefault();
 		if (ev.target.name === "name") {
 			if (ev.target.value.length > 3) {
-				console.log("name si");
 				setValidations({ ...validations, isInvalidName: true });
 				seterrorNameMessage("");
 			} else {
-				console.log(" name no");
 				setValidations({ ...validations, isInvalidName: false });
 				seterrorNameMessage("Name must be longer.");
 			}
 		}
 		if (ev.target.name === "email") {
 			if (/^[\w-]+@([\w-]+\.)+[\w-]{2,4}$/.test(ev.target.value)) {
-				console.log("email si");
 				setValidations({ ...validations, isInvalidMail: true });
 				seterrorMailMessage("");
 			} else {
-				console.log("email no");
 				setValidations({ ...validations, isInvalidMail: false });
 				seterrorMailMessage("Email must be formatted correctly.");
 			}
@@ -82,22 +77,18 @@ const App = () => {
 					ev.target.value
 				)
 			) {
-				console.log("phone si");
 				setValidations({ ...validations, isInvalidPhone: true });
 				seterrorPhoneMessage("");
 			} else {
-				console.log("phone no");
 				setValidations({ ...validations, isInvalidPhone: false });
 				seterrorPhoneMessage("Phone must be formatted correctly.");
 			}
 		}
 		if (ev.target.name === "message") {
 			if (ev.target.value.length > 10) {
-				console.log("message si");
 				setValidations({ ...validations, isInvalidMessage: true });
 				seterrorMessageMessage("");
 			} else {
-				console.log("message no");
 				setValidations({ ...validations, isInvalidMessage: false });
 				seterrorMessageMessage("Message must be longer.");
 			}
@@ -111,7 +102,7 @@ const App = () => {
 
 		setDataForm({ ...dataForm, [ev.target.name]: ev.target.value });
 	};
-	console.log(dataForm);
+
 	const handleChange = () => {
 		setcheckbox(!checkbox);
 		if (checkbox === true) {
@@ -128,7 +119,6 @@ const App = () => {
 	const handleSubmit = (ev) => {
 		ev.preventDefault();
 		sendFormApi(dataForm);
-		console.log(dataForm);
 	};
 	const handleTreatment = (ev) => {
 		setTreatment(ev.target.value);
@@ -145,14 +135,12 @@ const App = () => {
 							alt="Mediasmart Logo"
 						/>
 					</a>
-					{/* <div className="burguer_menu">
-						<span className="burguer_menu--line--top"></span>
-						<span className="burguer_menu--line--middle"></span>
-						<span className="burguer_menu--line--bottom"></span>
-					</div> */}
-					<div className={burger} onClick={handleBurger} >
-						<span></span>
+					<div className="burguer_menu">
+						<div className={burger} onClick={handleBurger}>
+							<span></span>
+						</div>
 					</div>
+
 					<div className="div_menu">
 						<ul className="navlist">
 							<li className="navlist__element">solutions</li>
@@ -191,7 +179,6 @@ const App = () => {
 							type="checkbox"
 							name="checkbox"
 							id="checkbox"
-							name="treatment"
 							checked={checkbox}
 							onChange={handleChange}
 						/>
@@ -245,6 +232,383 @@ const App = () => {
 					<input className="submit" type="submit" value="Submit" />
 				</div>
 			</form>
+			<section className="countriesSection">
+				<div className="divCountries">
+					<div className="divCountries__card">
+						{" "}
+						<img
+							className="divCountries__card--pic"
+							src="https://www.mediasmart.io/hubfs/raw_assets/public/MEDIASMART/mediasmart-hubspot/assets/images/contact-us/spain.svg"
+							alt="Spain"
+						/>
+						<h3 className="divCountries__card--h3">Spain</h3>
+						<p className="divCountries__card--text">
+							Calle García de Paredes 12, 1º B, Madrid, 28010
+						</p>{" "}
+						<a
+							className="divCountries__card--mail"
+							target="_blank"
+							rel="noreferrer"
+							href="mailto:info@mediasmart.io"
+						>
+							info@mediasmart.io
+						</a>
+					</div>
+					<div className="divCountries__card">
+						{" "}
+						<img
+							className="divCountries__card--pic"
+							src="https://www.mediasmart.io/hubfs/raw_assets/public/MEDIASMART/mediasmart-hubspot/assets/images/contact-us/gurgaon.svg"
+							alt="India (Gurugram)"
+						/>
+						<h3 className="divCountries__card--h3">India (Gurugram)</h3>
+						<p className="divCountries__card--text">
+							3rd Floor, Tower-B, Awfis Unitech Cyber Park, Sector – 39,
+							Gurugram-122002, Haryana
+						</p>{" "}
+						<a
+							className="divCountries__card--mail"
+							target="_blank"
+							rel="noreferrer"
+							href="mailto:info@mediasmart.io"
+						>
+							info@mediasmart.io
+						</a>
+					</div>
+					<div className="divCountries__card">
+						{" "}
+						<img
+							className="divCountries__card--pic"
+							src="https://www.mediasmart.io/hubfs/raw_assets/public/MEDIASMART/mediasmart-hubspot/assets/images/contact-us/bangalore.svg"
+							alt="India (Bangalore)"
+						/>
+						<h3 className="divCountries__card--h3">India (Bengaluru)</h3>
+						<p className="divCountries__card--text">
+							Vaishnavi Tech Park, Ground Floor, Sarjapur Main Rd, Bellandur,
+							Bengaluru, Karnataka 560103
+						</p>{" "}
+						<a
+							className="divCountries__card--mail"
+							target="_blank"
+							rel="noreferrer"
+							href="mailto:info@mediasmart.io"
+						>
+							info@mediasmart.io
+						</a>
+					</div>
+
+					<div className="divCountries__card">
+						{" "}
+						<img
+							className="divCountries__card--pic"
+							src="https://www.mediasmart.io/hubfs/raw_assets/public/MEDIASMART/mediasmart-hubspot/assets/images/contact-us/singapore.svg"
+							alt="Singapore"
+						/>
+						<h3 className="divCountries__card--h3">Singapore</h3>
+						<p className="divCountries__card--text">
+							100 Pasir Panjang Road, #06-07 Singapore, 118518
+						</p>{" "}
+						<a
+							className="divCountries__card--mail"
+							target="_blank"
+							rel="noreferrer"
+							href="mailto:info@mediasmart.io"
+						>
+							info@mediasmart.io
+						</a>
+					</div>
+					<div className="divCountries__card">
+						{" "}
+						<img
+							className="divCountries__card--pic"
+							src="https://www.mediasmart.io/hubfs/raw_assets/public/MEDIASMART/mediasmart-hubspot/assets/images/contact-us/indonesia.svg"
+							alt="Indonesia"
+						/>
+						<h3 className="divCountries__card--h3">Indonesia</h3>
+						<p className="divCountries__card--text">
+							PT Affle Indonesia WeWork Noble House Noble House, 30th Floor Jl
+							Dr. Ide Anak Agung Gde Agung Kav E.4. No. 2 Kuningan, Jakarta
+							Selatan 12950
+						</p>{" "}
+						<a
+							target="_blank"
+							className="divCountries__card--mail"
+							rel="noreferrer"
+							href="mailto:info@mediasmart.io"
+						>
+							info@mediasmart.io
+						</a>
+					</div>
+					<div className="divCountries__card">
+						{" "}
+						<img
+							className="divCountries__card--pic"
+							src="https://www.mediasmart.io/hubfs/raw_assets/public/MEDIASMART/mediasmart-hubspot/assets/images/contact-us/dubai.svg"
+							alt="Dubai"
+						/>
+						<h3 className="divCountries__card--h3">UAE</h3>
+						<p className="divCountries__card--text">
+							Affle MEA, Building 17, Office 351, Third Floor, Dubai Internet
+							City, Dubai, UAE
+						</p>{" "}
+						<a
+							className="divCountries__card--mail"
+							target="_blank"
+							rel="noreferrer"
+							href="mailto:info@mediasmart.io"
+						>
+							info@mediasmart.io
+						</a>
+					</div>
+					<div className="divCountries__card">
+						{" "}
+						<img
+							className="divCountries__card--pic"
+							src="https://www.mediasmart.io/hubfs/raw_assets/public/MEDIASMART/mediasmart-hubspot/assets/images/contact-us/brazil.svg"
+							alt="Brazil"
+						/>
+						<h3 className="divCountries__card--h3">Brazil</h3>
+						<p className="divCountries__card--text">
+							Av. Paulista, 1374 - Bela Vista, São Paulo - SP, 01310-100, Brazil
+						</p>{" "}
+						<a
+							className="divCountries__card--mail"
+							target="_blank"
+							rel="noreferrer"
+							href="mailto:info@mediasmart.io"
+						>
+							info@mediasmart.io
+						</a>
+					</div>
+				</div>
+			</section>
+			<footer>
+				<div className="footersection">
+					<div className="footersection__block">
+						<a href="/?hsLang=en">
+							<img
+								className="footer_logo"
+								src="https://www.mediasmart.io/hubfs/raw_assets/public/MEDIASMART/mediasmart-hubspot/assets/images/mediasmartLogo.svg"
+								alt="Mediasmart Logo"
+							/>
+						</a>
+						<div className="footersection__block--title">mediasmart</div>
+						<div className="footersection__block--textcontact">
+							<span>S.L. B86329638</span>
+							<span> Calle García de Paredes 12, 1ºB</span>
+							<span> 28010 - Madrid</span>
+						</div>
+						<div className="footersection__block--text">
+							Telp: +34 91 199 35 46
+						</div>
+						<div className="footersection__block--text">
+							Email: info@mediasmart.io
+						</div>
+					</div>
+
+					<div className="footersection__block">
+						<div className="footersection__block--title">Solutions</div>
+						<div className="footersection__block--text">
+							<a
+								className="footersection__block--link"
+								href="/connected-smart-tv-programmatic-advertising?hsLang=en"
+							>
+								CTV with Household Sync
+							</a>
+							<a
+								className="footersection__block--link"
+								href="/dooh-with-audience-sync?hsLang=en"
+							>
+								DOOH with Audience Sync
+							</a>
+							<a
+								className="footersection__block--link"
+								href="/impactful-mobile-ads?hsLang=en"
+							>
+								Impactful Mobile Ads
+							</a>
+							<a
+								className="footersection__block--link"
+								href="/drive-to-store-footfall-tracking-marketing-platform?hsLang=en"
+							>
+								Drive to Store with incrementality
+							</a>
+							<a
+								className="footersection__block--link"
+								href="/scalable-omnichannel-targeting?hsLang=en"
+							>
+								Scalable Omnichannel Targeting
+							</a>
+						</div>
+					</div>
+
+					<div className="footersection__block">
+						<div className="footersection__block--title2">
+							<span>Generate Impact</span>
+							<span>with mediasmart</span>
+						</div>
+						<div className="footersection__block--text">
+							<a className="footersection__block--link" href="/?hsLang=en">
+								Key Features
+							</a>
+							<a className="footersection__block--link" href="/?hsLang=en">
+								Global Scale
+							</a>
+							<a className="footersection__block--link" href="/?hsLang=en">
+								Awards &amp; Recognitions
+							</a>
+						</div>
+						<div className="footersection__block--title titleextra">
+							Resources
+						</div>
+						<div className="footersection__block--text">
+							<a
+								className="footersection__block--link"
+								href="https://blog.mediasmart.io?hsLang=en"
+							>
+								Blog
+							</a>
+							<a
+								className="footersection__block--link"
+								href="/success-stories?hsLang=en"
+							>
+								Success Stories
+							</a>
+						</div>
+					</div>
+
+					<div className="footersection__block">
+						<div className="footersection__block--title">About Us</div>
+						<div className="footersection__block--text">
+							<a
+								className="footersection__block--link"
+								href="/about-us-team?hsLang=en"
+							>
+								Team
+							</a>
+							<a
+								className="footersection__block--link"
+								href="https://info.mediasmart.io/our-culture-values?hsLang=en"
+							>
+								Culture
+							</a>
+							<a
+								className="footersection__block--link"
+								href="https://info.mediasmart.io/careers?hsLang=en"
+							>
+								Careers
+							</a>
+							<div className="footersection__block--title titleextra">
+								Cookies
+							</div>
+
+							<a className="footersection__block--link" href="/?hsLang=en">
+								Remove Cookies
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div className="goberndiv">
+					<a
+						className="goberndiv__link"
+						target="_blank"
+						rel="noreferrer"
+						href="/financiacion-publica/?hsLang=en"
+					>
+						<img
+							className="goberndiv__link--img"
+							src="https://www.mediasmart.io/hubfs/raw_assets/public/MEDIASMART/mediasmart-hubspot/assets/images/footer/footer_1.png"
+							alt="Mediasmart"
+						/>
+					</a>
+					<a
+						className="goberndiv__link"
+						target="_blank"
+						rel="noreferrer"
+						href="/ministerio/?hsLang=en"
+					>
+						<img
+							className="goberndiv__link--img"
+							src="https://www.mediasmart.io/hubfs/raw_assets/public/MEDIASMART/mediasmart-hubspot/assets/images/footer/footer_2.png"
+							alt="Mediasmart"
+						/>
+					</a>
+					<a
+						className="goberndiv__link"
+						target="_blank"
+						rel="noreferrer"
+						href="/financiacion-publica/?hsLang=en"
+					>
+						<img
+							className="goberndiv__link--img"
+							src="https://www.mediasmart.io/hubfs/raw_assets/public/MEDIASMART/mediasmart-hubspot/assets/images/footer/footer_3.png"
+							alt="Mediasmart"
+						/>
+					</a>
+					<a
+						className="goberndiv__link"
+						target="_blank"
+						rel="noreferrer"
+						href="https://iabeurope.eu/join-the-tcf/"
+					>
+						<img
+							className="goberndiv__link--img"
+							src="https://www.mediasmart.io/hubfs/raw_assets/public/MEDIASMART/mediasmart-hubspot/assets/images/footer/footer_4.png"
+							alt="Mediasmart"
+						/>
+					</a>
+				</div>
+
+				<div className="termsdiv">
+					<div className="termsdiv__block copy">
+						Copyright 2023 - @mediasmart. All Rights Reserved.
+					</div>
+
+					<div className="termsdiv__block logos">
+						
+							<a
+								className="termsdiv__block--link"
+								target="_blank"
+								rel="noreferrer"
+								href="https://www.facebook.com/mediasmartmb/"
+							>
+								<i class="fa-brands fa-facebook-f"></i>
+							</a>
+							
+							<a
+								className="termsdiv__block--link"
+								target="_blank"
+								rel="noreferrer"
+								href="https://www.linkedin.com/company/mediasmart-mobile/"
+							><i class="fa-brands fa-linkedin-in"></i></a><a
+								className="termsdiv__block--link"
+								target="_blank"
+								rel="noreferrer"
+								href="https://twitter.com/mediasmartio"
+							>
+								<i class="fa-brands fa-twitter"></i>
+							</a>
+							<a
+								className="termsdiv__block--link"
+								target="_blank"
+								rel="noreferrer"
+								href="https://www.youtube.com/channel/UCMkb1sSXEaxpzJ4fqmJMHQg"
+							><i class="fa-brands fa-youtube"></i></a>
+					
+					</div>
+
+					<div className="termsdiv__block">
+						<a className="termsdiv__block--link" href="/terms-of-use?hsLang=en">
+							Terms of Services
+						</a>
+						&nbsp;|&nbsp;
+						<a className="termsdiv__block--link" href="/privacy?hsLang=en">
+							Privacy Policy
+						</a>
+					</div>
+				</div>
+			</footer>
 		</div>
 	);
 };
