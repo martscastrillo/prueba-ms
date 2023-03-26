@@ -12,7 +12,7 @@ const App = () => {
 	const [hidden, setHidden] = useState("hidden");
 	const [active, setActive] = useState(false);
 	const [burger, setBurger] = useState("burger");
-	const [treatment, setTreatment] = useState("Sr.");
+	const [treatment, setTreatment] = useState("");
 	const [dataForm, setDataForm] = useState({
 		name: "",
 		email: "",
@@ -21,6 +21,7 @@ const App = () => {
 		checkbox: false,
 		treatment: "",
 	});
+	console.log(dataForm)
 	const [validations, setValidations] = useState({
 		isInvalidName: false,
 		isInvalidMail: false,
@@ -94,12 +95,7 @@ const App = () => {
 				seterrorMessageMessage("Message must be longer.");
 			}
 		}
-		if (dataForm.checkbox === true) {
-			console.log("si");
-		}
-		if (dataForm.checkbox === false) {
-			console.log("no");
-		}
+		
 
 		setDataForm({ ...dataForm, [ev.target.name]: ev.target.value });
 	};
@@ -123,6 +119,8 @@ const App = () => {
 	};
 	const handleTreatment = (ev) => {
 		setTreatment(ev.target.value);
+		setDataForm({ ...dataForm, [ev.target.name]: ev.target.value });
+		
 	};
 
 	return (
@@ -190,9 +188,10 @@ const App = () => {
 							className={`${hidden}`}
 							onChange={handleTreatment}
 							value={treatment}
-						>
-							<option value="">Sr.</option>
-							<option value="">Sra.</option>
+						>	
+						 <option></option>
+							<option value="Sr.">Sr.</option>
+							<option value="Sra.">Sra.</option>
 						</select>
 					</div>
 					<div className="div__input">
