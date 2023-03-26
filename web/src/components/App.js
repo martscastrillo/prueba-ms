@@ -1,22 +1,25 @@
 import apiData from "../services/api";
 import { useState } from "react";
-import "../stylesheets/index.scss";
+import "../stylesheets/App.scss";
 
 const App = () => {
+
 	const [errorNameMessage, seterrorNameMessage] = useState("");
 	const [errorMailMessage, seterrorMailMessage] = useState("");
 	const [errorPhoneMessage, seterrorPhoneMessage] = useState("");
 	const [errorMessageMessage, seterrorMessageMessage] = useState("");
-  const [checkbox, setcheckbox] = useState(false);
-  const [hidden, setHidden] = useState('hidden');
-  const [treatment, setTreatment] = useState('Sr.');
+	const [checkbox, setcheckbox] = useState(false);
+	const [hidden, setHidden] = useState("hidden");
+	const [active, setActive] = useState(false);
+	const [burger, setBurger] = useState("burger");
+	const [treatment, setTreatment] = useState("Sr.");
 	const [dataForm, setDataForm] = useState({
 		name: "",
 		email: "",
 		phone: "",
 		message: "",
-    checkbox: false,
-    treatment:""
+		checkbox: false,
+		treatment: "",
 	});
 	const [validations, setValidations] = useState({
 		isInvalidName: false,
@@ -37,7 +40,18 @@ const App = () => {
 			/*   } */
 		});
 	};
-
+	const handleBurger = (ev) => {
+		ev.preventDefault();
+		
+		if (active === true) {
+			setActive(false);
+			setBurger("burger");
+		}
+		if (active === false) {
+			setActive(true);
+			setBurger("burger active");
+		} 
+		}
 	const handleInput = (ev) => {
 		ev.preventDefault();
 		if (ev.target.name === "name") {
@@ -88,29 +102,28 @@ const App = () => {
 				seterrorMessageMessage("Message must be longer.");
 			}
 		}
-   if (dataForm.checkbox === true){
-      console.log('si')
-    }
-    if (dataForm.checkbox === false){
-      console.log('no')
-    } 
-  
+		if (dataForm.checkbox === true) {
+			console.log("si");
+		}
+		if (dataForm.checkbox === false) {
+			console.log("no");
+		}
+
 		setDataForm({ ...dataForm, [ev.target.name]: ev.target.value });
-  
-	
-	};  console.log(dataForm)
-  const handleChange = () => {
-    setcheckbox(!checkbox); 
-    if( checkbox === true){
-      setDataForm({ ...dataForm, checkbox: false});
-      setHidden('hidden');
-      return(false)
-    }
-    if( checkbox === false){
-      setDataForm({ ...dataForm, checkbox: true});
-      setHidden('')
-      return(true)
-    }
+	};
+	console.log(dataForm);
+	const handleChange = () => {
+		setcheckbox(!checkbox);
+		if (checkbox === true) {
+			setDataForm({ ...dataForm, checkbox: false });
+			setHidden("hidden");
+			return false;
+		}
+		if (checkbox === false) {
+			setDataForm({ ...dataForm, checkbox: true });
+			setHidden("");
+			return true;
+		}
 	};
 	const handleSubmit = (ev) => {
 		ev.preventDefault();
@@ -118,9 +131,9 @@ const App = () => {
 		console.log(dataForm);
 	};
 	const handleTreatment = (ev) => {
-    setTreatment(ev.target.value)
-
+		setTreatment(ev.target.value);
 	};
+
 	return (
 		<div>
 			<header>
@@ -132,7 +145,15 @@ const App = () => {
 							alt="Mediasmart Logo"
 						/>
 					</a>
-					<div>
+					{/* <div className="burguer_menu">
+						<span className="burguer_menu--line--top"></span>
+						<span className="burguer_menu--line--middle"></span>
+						<span className="burguer_menu--line--bottom"></span>
+					</div> */}
+					<div className={burger} onClick={handleBurger} >
+						<span></span>
+					</div>
+					<div className="div_menu">
 						<ul className="navlist">
 							<li className="navlist__element">solutions</li>
 							<li className="navlist__element">resources</li>
@@ -151,7 +172,7 @@ const App = () => {
 			</div>
 			<form className="form" action="" onSubmit={handleSubmit}>
 				<div className="div">
-					<div className="div_input">
+					<div className="div__input">
 						<input
 							className="input"
 							name="name"
@@ -163,16 +184,29 @@ const App = () => {
 						/>
 						<span className="span_message">{errorNameMessage}</span>
 					</div>
-					<div className="div_input">
-						<label  htmlFor="">Want to tell us your treatment?</label>
-						<input  className="input__checkbox" type="checkbox" name="checkbox" id="checkbox" name="treatment" checked={checkbox}
-							onChange={handleChange}/>
-            <select name='treatment' id='treatment' className={`${hidden}`}  onChange={handleTreatment} value={treatment}>
-              <option value="">Sr.</option>
-              <option value="">Sra.</option>
-            </select>
+					<div className="div__input">
+						<label htmlFor="">Want to tell us your treatment?</label>
+						<input
+							className="input__checkbox"
+							type="checkbox"
+							name="checkbox"
+							id="checkbox"
+							name="treatment"
+							checked={checkbox}
+							onChange={handleChange}
+						/>
+						<select
+							name="treatment"
+							id="treatment"
+							className={`${hidden}`}
+							onChange={handleTreatment}
+							value={treatment}
+						>
+							<option value="">Sr.</option>
+							<option value="">Sra.</option>
+						</select>
 					</div>
-					<div className="div_input">
+					<div className="div__input">
 						<input
 							className="input"
 							name="email"
@@ -184,7 +218,7 @@ const App = () => {
 						/>
 						<span className="span_message">{errorMailMessage}</span>
 					</div>
-					<div className="div_input">
+					<div className="div__input">
 						<input
 							className="input"
 							name="phone"
@@ -196,7 +230,7 @@ const App = () => {
 						/>
 						<span className="span_message">{errorPhoneMessage}</span>
 					</div>
-					<div className="div_input">
+					<div className="div__input">
 						<input
 							className="input__message"
 							name="message"

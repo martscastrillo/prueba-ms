@@ -3,7 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/App';
-import './stylesheets/index.scss';
+import './stylesheets/App.scss';
 
 import { HashRouter } from 'react-router-dom';
 
