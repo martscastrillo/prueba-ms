@@ -17,28 +17,19 @@
 		margin: 14px;
 
 		&--title {
-			font-size: 1.25rem;
-			line-height: 1.75rem;
-			font-weight: 500;
-			margin-bottom: 8px;
+			@include textFootersection();
 		}
 		&--title2 {
-			font-size: 1.25rem;
-			line-height: 1.75rem;
-			font-weight: 500;
-			margin-bottom: 8px;
-			display: flex;
-			flex-direction: column;
+			@include textFootersection();
+			@include flexColum();
 		}
 		&--textcontact {
-			display: flex;
-			flex-direction: column;
+			@include flexColum();
 			font-weight: 400;
 			font-size: 14px;
 		}
 		&--text {
-			display: flex;
-			flex-direction: column;
+			@include flexColum();
 			font-weight: 400;
 			font-size: 1rem;
 		}
@@ -53,10 +44,8 @@
 }
 .goberndiv {
 	display: flex;
-	margin-top: 20px;
-	margin-left: 40px;
-	margin-right: 40px;
 	justify-content: center;
+	margin: 20px 40px 0 40px;
 	&__link {
 		margin-left: 0.25rem;
 		margin-right: 0.25rem;
@@ -68,8 +57,7 @@
 }
 
 .termsdiv {
-	display: flex;
-	flex-direction: column;
+	@include flexColum();
 	align-items: flex-end;
 	justify-content: center;
 	gap: 30px;
@@ -87,28 +75,23 @@
 }
 
 .logos {
-	
+	@include perfectCenterFlex();
 	align-self: center;
-	display: flex;
-	justify-content: center;
 	gap: 14px;
 }
 .copy {
-
 	font-size: 14px;
-	color: #5e5c83;
+	color: $copyColor;
 	align-self: center;
 }
 .fa-brands {
 	width: 26px;
 	height: 26px;
 	font-size: 14px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	@include perfectCenterFlex();
 	padding: 10px;
 	border-radius: 5px;
-	color: white;
+	color:$white;
 	box-shadow: 4px 4px 4px 2px rgba(52, 52, 52, 0.19);
 	background-color: $black;
 }

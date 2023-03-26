@@ -24,8 +24,6 @@
 	width: 24px;
 	height: 24px;
 	cursor: pointer;
-	right: 2rem;
-	top: 2rem;
 	z-index: 20;
 }
 
@@ -82,13 +80,10 @@
 		line-height: 1.75rem;
 		font-weight: 300;
 		&--border {
-			color: rgb(2, 85, 168);
-			border: 1.5px solid rgb(2, 85, 168);
+			color: $secondaryColor;
+			border: 1.5px solid $secondaryColor;
 			border-radius: 99999px;
-			padding-bottom: 0.25rem;
-			padding-top: 0.25rem;
-			padding-left: 1rem;
-			padding-right: 1rem;
+			padding: 0.25rem 1rem 0.25rem 1rem;
 		}
 	}
 }
@@ -109,19 +104,17 @@
 	}
 }
 .line_red {
+	@include line();
 	background-color: $mainColor;
-	border-radius: 0.5rem;
 	width: 12rem;
 	margin-bottom: 0.5rem;
-	height: 0.5rem;
-	display: block;
+
+
 }
 
 .line_blue {
+	@include line();
 	background-color: $secondaryColor;
-	border-radius: 0.5rem;
 	width: 9rem;
-	height: 0.5rem;
-	display: block;
 	margin-bottom: 2rem;
 }
