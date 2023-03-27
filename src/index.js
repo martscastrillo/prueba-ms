@@ -15,7 +15,9 @@ server.listen(serverPort, () => {
 
 
 server.post('/submit', (req, res) => {
-  res.json(req.body);
+  const response = req.body;
+  console.log(response);
+  res.json(response);
   
 });
 

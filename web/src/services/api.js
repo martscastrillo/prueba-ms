@@ -1,8 +1,7 @@
 const sendFormApi = (data) => {
-	const bodyParams = data;
 	return fetch("http://localhost:4000/submit", {
 		method: "POST",
-		body: JSON.stringify(bodyParams),
+		body: JSON.stringify(data),
 		headers: {
 			"Content-Type": "application/json",
 		},
@@ -10,6 +9,7 @@ const sendFormApi = (data) => {
 		.then((response) => response.json())
 		.then((dataObj) => {
 			console.log("Server response:", dataObj);
+		
 		});
 };
 
