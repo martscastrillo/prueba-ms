@@ -21,4 +21,7 @@ server.post('/submit', (req, res) => {
   
 });
 
+const staticServer = './src/public-react';
+server.use(express.static(staticServer));
+
 
