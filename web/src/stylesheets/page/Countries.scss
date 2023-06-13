@@ -1,0 +1,64 @@
+.countriesSection {
+	display: flex;
+	justify-content: center;
+	margin-top: 70px;
+}
+.divCountries {
+	@include flexColum();
+	@include perfectCenterFlex();
+	gap: 20px;
+	flex-wrap: wrap;
+	&__card {
+		border-radius: 10px;
+		box-shadow: 0 0 10px #30478729;
+		padding: 30px;
+		@include flexColum();
+		align-items: flex-start;
+		justify-content: space-around;
+		width: 80%;
+		&--mail {
+			color: $mainColor;
+			font-size: 14px;
+			font-weight: 600;
+			text-decoration: none;
+		}
+		&--h3 {
+			color: $lightDarkColor;
+			font-size: 20px;
+			font-weight: 600;
+			line-height: 46px;
+			margin-bottom: 10px;
+			@media screen and(min-width: 455px) {
+				font-size: 22px;
+			}
+			@media screen and(min-width: 455px) {
+				font-size: 24px;
+			}
+		}
+		&--pic {
+			height: 88px;
+			margin-bottom: 12px;
+		}
+		&--text {
+			height: 88px;
+			flex-grow: 1;
+		}
+		@media screen and(min-width: 690px) {
+			height: 410px;
+			width: 80%;
+		}
+		@media screen and(min-width: 1200px) {
+			height: 420px;
+			width: 100%;
+		}
+	}
+	@media screen and(min-width: 690px) {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		width: 90%;
+	}
+	@media screen and(min-width: 1200px) {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}

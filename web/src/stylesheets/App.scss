@@ -1,12 +1,11 @@
 @import "core/Reset";
 @import "core/Variables";
 @import "core/Mixins";
+@import "page/Header";
 @import "page/Form";
+@import "page/Countries";
+@import "page/Footer";
 
-body{
-	color:rgb(28, 28, 124);
-	background-color: rgb(168, 202, 253);
-}
 .hidden {
 	display: none;
 }

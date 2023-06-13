@@ -1,59 +1,64 @@
-.superbox {
-	text-transform: uppercase;
-	font-family: "Poppins", sans-serif;
-	display: flex;
-	flex-direction: column;
+.form {
+	@include perfectCenterFlex();
+	flex-wrap: wrap;
+}
+.div {
 	width: 100vw;
-	height: 100vh;
-	align-items: center;
-	justify-content: center;
-	gap: 20px;
-    &__h1{
-        font-size: 50px;
-        position: absolute;
-        top:180px;
-    }
-	&__form {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		gap: 20px;
-		border: 0px;
-		&--fieldset {
-			border: 0px;
-			display: flex;
-			gap: 20px;
-			input {
-				border: 1px solid rgb(28, 28, 124);
-				border-radius: 5px;
-			}
+	@include perfectCenterFlex();
+	@include flexColum();
+	flex-wrap: wrap;
+	&__input {
+		width: 70%;
+		margin: 10px;
+		@media screen and(min-width: 1200px) {
+			width: 40%;
 		}
-		&--submit {
-			text-transform: uppercase;
-			font-family: "Poppins", sans-serif;
-			background-color: rgb(28, 28, 124);
-			box-shadow: 10px 10px 0 0 rgba(28, 28, 124, 0.19);
-			cursor: pointer;
-			transition: all 0.5s ease;
-			border: 0;
-			border-radius: 20px;
-			color: white;
-			font-weight: 600;
-			padding: 16px 43px;
-			&:hover {
-				box-shadow: none;
-			}
-		}
-        .extradiv{
-            display: flex;
-            gap:20px;
-        }
 	}
-	&__results {
-        margin-top: 30px;
-		display: flex;
-		align-items: center;
-		gap: 10px;
+}
+.input {
+	background: #f9f9fa 0 0 no-repeat padding-box;
+	border: 1px solid #ededed;
+	border-radius: 25px;
+	height: 50px;
+	font-size: 100%;
+	color: $darkColor;
+	width: 100%;
+	padding-left: 29px;
+	margin-bottom: 10px;
+	&__message {
+		background: #f9f9fa 0 0 no-repeat padding-box;
+		border: 1px solid #ededed;
+		border-radius: 25px;
+		height: 130px;
+		font-size: 100%;
+		color: $darkColor;
+		width: 100%;
+		padding-left: 29px;
+		padding-bottom: 90px;
 	}
+}
+.input__checkbox {
+	margin: 10px;
+}
+.submit {
+	background-color: $secondaryColor;
+	box-shadow: 10px 10px 0 0 rgba(2, 85, 168, 0.19);
+	cursor: pointer;
+	transition: all 0.5s ease;
+	border: 0;
+	border-radius: 0.12em;
+	color: $white;
+	display: inline-block;
+	font-weight: 600;
+	margin: 5% 0.3em 0.3em 0;
+	padding: 16px 43px;
+	text-align: center;
+	text-transform: capitalize;
+	margin-top: 20px;
+	&:hover {
+		box-shadow: none;
+	}
+}
+.span_message {
+	color: $mainColor;
 }

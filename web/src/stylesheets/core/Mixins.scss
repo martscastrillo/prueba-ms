@@ -1,0 +1,20 @@
+@mixin perfectCenterFlex() {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+@mixin flexColum() {
+	display: flex;
+	flex-direction: column;
+}
+@mixin line() {
+	height: 0.5rem;
+	display: block;
+	border-radius: 0.5rem;
+}
+@mixin textFootersection() {
+	font-size: 1.25rem;
+	line-height: 1.75rem;
+	font-weight: 500;
+	margin-bottom: 8px;
+}
