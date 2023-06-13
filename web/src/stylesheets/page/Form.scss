@@ -1,0 +1,50 @@
+.superbox {
+	text-transform: uppercase;
+	font-family: "Poppins", sans-serif;
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	height: 100vh;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 20px;
+		border: 0px;
+		&--fieldset {
+			border: 0px;
+			display: flex;
+			gap: 20px;
+			input {
+				border: 1px solid rgb(28, 28, 124);
+				border-radius: 5px;
+			}
+		}
+		&--submit {
+			text-transform: uppercase;
+			font-family: "Poppins", sans-serif;
+			background-color: rgb(28, 28, 124);
+			box-shadow: 10px 10px 0 0 rgba(28, 28, 124, 0.19);
+			cursor: pointer;
+			transition: all 0.5s ease;
+			border: 0;
+			border-radius: 20px;
+			color: white;
+			font-weight: 600;
+			padding: 16px 43px;
+			&:hover {
+				box-shadow: none;
+			}
+		}
+	}
+	&__results {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+	}
+}
