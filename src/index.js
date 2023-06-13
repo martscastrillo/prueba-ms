@@ -13,15 +13,16 @@ server.listen(serverPort, () => {
   console.log(`Server listening at http://localhost:${serverPort}`);
 });
 
+let calcHistory = [];
+server.get('/calc', (req, res) => {
+    const args = req.query.args;
 
-server.post('/submit', (req, res) => {
-  const response = req.body;
-  console.log(response);
-  res.json(response);
-  
-});
-
+  console.log(args);
+  });
+  server.get('/history', (req, res) => {
+   
+    console.log(calcHistory);
+ 
+  });
 const staticServer = './src/public-react';
 server.use(express.static(staticServer));
-
-
