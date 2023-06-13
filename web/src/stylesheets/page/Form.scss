@@ -8,7 +8,11 @@
 	align-items: center;
 	justify-content: center;
 	gap: 20px;
-
+    &__h1{
+        font-size: 50px;
+        position: absolute;
+        top:180px;
+    }
 	&__form {
 		display: flex;
 		flex-direction: column;
@@ -41,10 +45,15 @@
 				box-shadow: none;
 			}
 		}
+        .extradiv{
+            display: flex;
+            gap:20px;
+        }
 	}
 	&__results {
+        margin-top: 30px;
 		display: flex;
 		align-items: center;
-		gap: 20px;
+		gap: 10px;
 	}
 }
